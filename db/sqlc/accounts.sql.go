@@ -104,7 +104,6 @@ func (q *Queries) ListAccounts(ctx context.Context, arg ListAccountsParams) ([]A
 }
 
 const updateAccount = `-- name: UpdateAccount :one
-
 UPDATE accounts
   set balance = $2
 WHERE id = $1
@@ -116,12 +115,6 @@ type UpdateAccountParams struct {
 	Balance int32 `json:"balance"`
 }
 
-// -- name: UpdateAccount :exec
-// UPDATE accounts
-//
-//	set balance = $2
-//
-// WHERE id = $1;
 func (q *Queries) UpdateAccount(ctx context.Context, arg UpdateAccountParams) (Account, error) {
 	row := q.db.QueryRow(ctx, updateAccount, arg.ID, arg.Balance)
 	var i Account
