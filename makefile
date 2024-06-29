@@ -27,9 +27,12 @@ migratedown:
 	migrate -path db/migration -database "postgresql://user:password@localhost:5432/SimpleBank_PostgresDB?sslmode=disable" -verbose down
 
 getsqlc:
-	go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest			
+	go install github.com/sqlc-dev/sqlc/cmd/sqlc@latest
 
-.PHONY: postgres createdb dropdb migrateup migratedown
+getpgx:
+	go get github.com/jackc/pgx/v5
+
+.PHONY: postgres createdb dropdb migrateup migratedown getpgx
 
 
  
