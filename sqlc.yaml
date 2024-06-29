@@ -13,8 +13,8 @@ sql:
         emit_interface: true
         emit_empty_slices: true
         overrides:
-          - db_type: "timestamptz"
-            go_type: "time.Time" 
+        - db_type: "timestamptz"
+          go_type: "time.Time"
       
 
 # version: "2"
