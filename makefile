@@ -32,7 +32,10 @@ getsqlc:
 getpgx:
 	go get github.com/jackc/pgx/v5
 
-.PHONY: postgres createdb dropdb migrateup migratedown getpgx
+sqlc:
+	sqlc generate	
+
+.PHONY: postgres createdb dropdb migrateup migratedown getpgx sqlc
 
 
  
