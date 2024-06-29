@@ -4,6 +4,7 @@
 # - Install for your OS, by using (scoop, brew etc)
 # - Project root folder / db /migration 
 # - Project root folder > migrate create -ext sql -dir db/migration -seq init_schema
+# - dbdiagram.io can be used to gnerate SQL file and then download it
 # - Copy/paste content of SQL file into migration's up folder
 # - Inside migration's down folder, in z-a hierarchy; DROP TABLE IF EXISTS xxxxx; (for all tables)
 
@@ -19,6 +20,8 @@ dropdb:
 	docker exec -it SimpleBank_Postgres dropdb --username=user SimpleBank_PostgresDB
 
 # (check) Schema migration
+createmigration:
+	migrate create -ext sql -dir db/migration -seq init_schema
 
 migrateup:
 	migrate -path db/migration -database "postgresql://user:password@localhost:5432/SimpleBank_PostgresDB?sslmode=disable" -verbose up
@@ -35,7 +38,7 @@ getpgx:
 sqlc:
 	sqlc generate	
 
-.PHONY: postgres createdb dropdb migrateup migratedown getpgx sqlc
+.PHONY: postgres createdb dropdb createmigration migrateup migratedown getpgx sqlc
 
 
  
