@@ -1,4 +1,4 @@
-dogit:
+gitpush:
 	git add .
 	git commit -m "commit"
 	git push
@@ -9,4 +9,4 @@ postgres:
 createmigration:
 	migrate create -ext sql -dir db/migration -seq init_schema
 
-.PHONY: dogit postgres createmigrate
+.PHONY: gitpush postgres createmigrate
