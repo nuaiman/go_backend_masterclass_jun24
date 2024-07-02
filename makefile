@@ -21,4 +21,7 @@ migrateup:
 migratedown:
 	migrate -path db/migration -database "postgresql://root:password@localhost:5432/SimpleBank-DB?sslmode=disable" -verbose down
 
+sqlc:
+	sqlc generate
+
 .PHONY: gitpush postgres createdb dropdb migrate migrateup migratedown
