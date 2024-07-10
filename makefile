@@ -3,7 +3,7 @@ gitpush:
 	git commit -m "commit"
 	git push
 
-postgres:
+postgresinit:
 	docker run --name SimpleBank-postgres -p 5432:5432 -e POSTGRES_USER=root -e POSTGRES_PASSWORD=password -d postgres
 
 createdb:
@@ -24,4 +24,4 @@ migratedown:
 sqlc:
 	sqlc generate
 
-.PHONY: gitpush postgres createdb dropdb migrate migrateup migratedown
+.PHONY: gitpush postgresinit createdb dropdb migrate migrateup migratedown
